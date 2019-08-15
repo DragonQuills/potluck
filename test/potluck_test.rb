@@ -91,7 +91,7 @@ class PotluckTest < Minitest::Test
     potluck.add_dish(lemon_cake)
     potluck.add_dish(tuna_sandwiches)
 
-    expected_menu = {:appetizers: ["Bean Dip", "Mushroom Salad"], :entres: ["Pulled Pork", "Tuna Salad Sandwiches"], :desserts:["Lemon Cake"]}
+    expected_menu = {:appetizers => ["Bean Dip", "Mushroom Salad"], :entres => ["Pulled Pork", "Tuna Salad Sandwiches"], :desserts =>["Lemon Cake"]}
     assert_equal expected_menu, potluck.menu
   end
 
