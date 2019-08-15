@@ -22,5 +22,13 @@ class PotluckTest < Minitest::Test
     assert_equal [], potluck.dishes
   end
   #test it can add a dish
+  def test_potluck_can_add_a_dish
+    potluck = Potluck.new("8-21-19")
+    bean_dip = Dish.new("Bean Dip", :appetizer)
+
+    potluck.add_dish(bean_dip)
+
+    assert_equal bean_dip, potluck.dishes[0]
+  end
   #test it can add multiple dishes
 end
