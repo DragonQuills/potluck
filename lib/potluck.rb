@@ -12,4 +12,16 @@ class Potluck
   def add_dish(dish)
     @dishes.push(dish)
   end
+
+  def get_all_from_category(given_category)
+    matching_dishes = []
+    @dishes.each do |dish|
+      if dish.category == given_category
+        matching_dishes.push(dish)
+      end
+    end
+    
+    return matching_dishes
+  end
+
 end

@@ -37,6 +37,7 @@ class PotluckTest < Minitest::Test
   #test it can add multiple dishes
   def test_potluck_can_add_multiple_dishes
     potluck = Potluck.new("8-21-19")
+
     bean_dip = Dish.new("Bean Dip", :appetizer)
     pulled_pork = Dish.new("Pulled Pork", :entre)
 
@@ -49,6 +50,7 @@ class PotluckTest < Minitest::Test
 
   def test_potluck_dishes_list_length_is_correct
     potluck = Potluck.new("8-21-19")
+
     bean_dip = Dish.new("Bean Dip", :appetizer)
     pulled_pork = Dish.new("Pulled Pork", :entre)
 
@@ -60,11 +62,14 @@ class PotluckTest < Minitest::Test
 
   def test_get_all_from_category_returns_list
     potluck = Potluck.new("8-21-19")
+
     bean_dip = Dish.new("Bean Dip", :appetizer)
     mushroom_salad = Dish.new("Mushroom Salad", :appetizer)
+    pulled_pork = Dish.new("Pulled Pork", :entre)
 
     potluck.add_dish(bean_dip)
     potluck.add_dish(mushroom_salad)
+    potluck.add_dish(pulled_pork)
 
     assert_equal [bean_dip, mushroom_salad], potluck.get_all_from_category(:appetizer)
     assert_equal bean_dip,  potluck.get_all_from_category(:appetizer).first
