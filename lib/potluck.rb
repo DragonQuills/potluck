@@ -38,4 +38,14 @@ class Potluck
     return menu
   end
 
+  def ratio(category)
+    total_dishes_in_category = 0
+    @dishes.each do |dish|
+      if dish.category == category
+        total_dishes_in_category += 1
+      end
+    end
+    ratio = (total_dishes_in_category.to_f / @dishes.length.to_f) * 100.0
+  end
+
 end
