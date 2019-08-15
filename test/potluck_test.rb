@@ -95,4 +95,21 @@ class PotluckTest < Minitest::Test
     assert_equal expected_menu, potluck.menu
   end
 
+  def test_potluck_ratio_returns_proper_ratio
+    potluck = Potluck.new("8-21-19")
+
+    mushroom_salad = Dish.new("Mushroom Salad", :appetizer)
+    bean_dip = Dish.new("Bean Dip", :appetizer)
+    pulled_pork = Dish.new("Pulled Pork", :entre)
+    lemon_cake = Dish.new("Lemon Cake", :dessert)
+
+    potluck.add_dish(mushroom_salad)
+    potluck.add_dish(bean_dip)
+    potluck.add_dish(pulled_pork)
+    potluck.add_dish(lemon_cake)
+
+    assert_equal 50.0, potluck.ratio(:appetizer)
+    assert_equal 25.0, potluck.ratio(:dessert)
+  end
+
 end
