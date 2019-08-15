@@ -46,4 +46,15 @@ class PotluckTest < Minitest::Test
     assert_equal bean_dip, potluck.dishes[0]
     assert_equal pulled_pork, potluck.dishes[1]
   end
+
+  def test_potluck_dishes_list_length_is_correct
+    potluck = Potluck.new("8-21-19")
+    bean_dip = Dish.new("Bean Dip", :appetizer)
+    pulled_pork = Dish.new("Pulled Pork", :entre)
+
+    potluck.add_dish(bean_dip)
+    potluck.add_dish(pulled_pork)
+
+    assert_equal 2, potluck.dishes.length
+  end
 end
