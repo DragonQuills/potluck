@@ -57,4 +57,18 @@ class PotluckTest < Minitest::Test
 
     assert_equal 2, potluck.dishes.length
   end
+
+  def test_get_all_from_category_returns_list
+    potluck = Potluck.new("8-21-19")
+    bean_dip = Dish.new("Bean Dip", :appetizer)
+    mushroom_salad = Dish.new("Mushroom Salad", :appetizer)
+
+    potluck.add_dish(bean_dip)
+    potluck.add_dish(mushroom_salad)
+
+    assert_equal [bean_dip, mushroom_salad], potluck.get_all_from_category(:appetizer)
+    assert_equal bean_dip,  potluck.get_all_from_category(:appetizer).first
+    assert_equal "Bean Dip", potluck.get_all_from_category(:appetizer).first.name
+  end
+
 end
